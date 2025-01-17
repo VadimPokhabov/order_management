@@ -40,18 +40,4 @@ def update_order(request, order_id):
     return render(request, 'orders/update_order.html', {'form': form, 'order': order})
 
 
-def add_product(request):
-    if request.method == "POST":
-        form = OrderForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('view_orders')
-    else:
-        form = OrderForm()
-    return render(request, 'product/add_product.html', {'form': form})
 
-
-def delete_product(request, product_id):
-    product = get_object_or_404(Order, id=product_id)
-    product.delete()
-    return redirect('view_orders')

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Order, Product
+from .models import Order
 
 
 class OrderForm(forms.ModelForm):
@@ -7,8 +7,3 @@ class OrderForm(forms.ModelForm):
         model = Order
         fields = ['table_number', 'items']
 
-
-class ProductForm(forms.ModelForm):
-    class Meta:
-        model = Product
-        fields = ['name', 'price']
