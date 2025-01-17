@@ -1,0 +1,10 @@
+<h1>Редактировать заказ</h1>
+<form method="POST">
+    {% csrf_token %}
+    <label for="table_number">Номер стола:</label>
+    <input type="number" name="table_number" value="{{ order.table_number }}" required>
+    <label for="items">Заказанные блюда (в формате JSON):</label>
+    <textarea name="items" required>{{ order.items }}</textarea>
+    <button type="submit">Сохранить</button>
+</form>
+<a href="{% url 'order_list' %}">Назад</a>
